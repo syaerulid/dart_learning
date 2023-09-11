@@ -25,9 +25,11 @@ void main()
     print("dan kebutuhanmu bulan ini adalah: $kebutuhan");
     
     // harga tiap barang
-    print('Harga dari sabun sebesar: $item1');
-    print('Harga dari sampo sebesar: $item2');
-    print('Harga dari seblak sebesar: $item3');
+    // Print the names and prices of items based on user input
+    for (int i = 0; i < kebutuhanList.length; i++) {
+        print('Harga dari ${kebutuhanList[i]} sebesar: ${i + 1 == 1 ? item1 : i + 1 == 2 ? item2 : item3}');
+}
+
     
     // sisa gaji
     var sisa_gaji = gaji - (item1 + item2 + item3);
