@@ -1,6 +1,6 @@
 // make class to a library that we can import
 class Animal {
-  String _name = '';
+  String _name = ''; 
   int _age = 0;
   double _weight = 0;
 }
