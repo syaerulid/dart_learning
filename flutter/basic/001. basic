@@ -1,0 +1,7 @@
+1. import untuk memanggil fungsi dari berkas flutter yang lain dalam kode dart
+2. main() fungsi utama dari kode flutter kita
+3. setiap komponen dalam flutter terdiri dari widget, even the app is widget
+4. MaterialApp adalah widget bawaan flutter
+5. Scaffold untuk desain layout dasar
+6. MaterialApp adalah tanah sekali pakai, sedangkan scafold adalah tembok
+7. pubspec yaml merupakan kode untuk mengatur package dependencies dalam flutter
