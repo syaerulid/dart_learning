@@ -1,0 +1,28 @@
+// calling widget name
+Center(
+  child: Text('Hello world!'),
+)
+
+// Widget 1 child
+Center( // parent dari Button
+  child: TextButton( // child dari Center dan parent dari Text
+    child: Text(), // child dari TextButton
+  ),
+)
+
+// Widget more than 1 child (children) // ListView, Column, GridView
+Row(
+  children: <Widget>[
+    //di dalam children akan berisi banyak widget
+  ]
+)
+
+// Stateless Widget
+Widget yang isinya immutable (tidak dapat diubah)
+nilainya harus menggunakan final
+
+// Stateful Widget
+Widget yang isinya dapat diubah
+
+
+
