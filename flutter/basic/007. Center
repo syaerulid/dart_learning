@@ -1,0 +1,6 @@
+Widget Center merupakan sebuah widget yang digunakan untuk membuat sebuah widget berada pada posisi tengah.
+
+// Implementasi
+Center(
+  child: const Text('Text berada di tengah'),
+)
