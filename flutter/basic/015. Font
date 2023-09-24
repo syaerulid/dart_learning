@@ -1,0 +1,39 @@
+// Mengatur Font itu penting
+
+1. Daftarkan font di pubspec.yaml
+flutter:
+ 
+  uses-material-design: true
+  assets:
+    - images/
+ 
+  fonts:
+    - family: Oswald
+      fonts:
+       - asset: fonts/Oswald/Oswald-Regular.ttf
+
+// Implementasi
+Text(
+  'Custom Font',
+  style: TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: 30,
+  ),
+),
+
+// Mengubah Font Default
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        fontFamily: 'Oswald',
+        primarySwatch: Colors.blue,
+      ),
+      home: FirstScreen(),
+    );
+  }
+}
