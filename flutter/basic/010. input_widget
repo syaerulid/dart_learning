@@ -1,0 +1,43 @@
+Input widget adalah widget yang digunakan supaya pengguna bisa berinteraksi dengan aplikasi.
+Input umumnya akan ditempatkan ke StatefulWidget
+
+// Text Field
+String _name = '';
+ 
+TextField(
+  onChanged: (String value) {
+    setState(() {
+      _name = value;
+    });
+  },
+)
+
+Parameter onChanged berisi sebuah fungsi yang akan dipanggil setiap terjadi perubahan inputan pada TextField. 
+Pada fungsi ini, kita dapat mengubah nilai variabel state dengan memanggil fungsi setState().
+
+// OnSubmitted()
+digunakan jika kita tidak ingin mengambil nilai setiap perubahan, namun ketika input sudah disubmit.
+
+String _name = '';
+ 
+TextField(
+  onSubmitted: (String value) {
+    setState(() {
+      _name = value;
+    });
+  },
+)
+
+// TextEditingController
+TextEditingController _controller = TextEditingController();
+ 
+TextField(
+  controller: _controller,
+),
+
+@override
+void dispose() {
+  _controller.dispose();
+  super.dispose();
+}
+
