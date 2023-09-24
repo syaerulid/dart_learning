@@ -1,0 +1,38 @@
+Row digunakan untuk membuat widget yang sejajar secara horizontal
+
+Contoh
+Row(
+  children: <Widget>[
+    //di sini berisi widget-widget
+  ],
+)
+
+// Implementasi
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: const <Widget>[
+    Icon(Icons.share),
+    Icon(Icons.thumb_up),
+    Icon(Icons.thumb_down),
+  ],
+)
+
+Column digunakan untuk membuat widget secara vertikal
+
+// Contoh
+Column(
+  children: <Widget>[
+    //di sini berisi widget-widget
+  ]
+)
+
+// Implementasi
+Column(
+  children: const <Widget>[
+    Text(
+      'Sebuah Judul',
+      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+    ),
+    Text('Lorem ipsum dolor sit amet'),
+  ],
+)
