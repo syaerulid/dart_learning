@@ -1,0 +1,63 @@
+// Image from Internet
+Image.network
+
+Image.network(url)
+
+// Implementasi Image Net
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Center(
+        child: Image.network(
+          'https://picsum.photos/200/300',
+          width: 200,
+          height: 200,
+        ),
+      ),
+    );
+  }
+}
+
+// Image.asset
+menggunakan pubspec.yaml
+1. daftarkan asset
+...
+flutter:
+  uses-material-design: true
+ 
+  assets:
+    - images/android.png
+...
+
+2. jika gambar banyak, buat suatu folder
+...
+flutter:
+ 
+  uses-material-design: true
+ 
+  assets:
+    - images/
+...
+
+3. //Implementasi
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Center(
+        child: Image.asset('images/android.png', width: 200, height: 200),
+      ),
+    );
+  }
+}
