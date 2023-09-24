@@ -1,0 +1,8 @@
+Padding, sebuah widget untuk menambahkan padding pada suatu widget
+
+// Contoh
+Padding(
+  padding: const EdgeInsets.all(30),
+  child: const Text('Ini Padding')
+)
+
