@@ -1,0 +1,32 @@
+Switch merupakan inputan yang mengembalikan nilai berupa boolean (TRUE/FALSE)
+
+// contoh
+class _FirstScreenState extends State<FirstScreen> {
+  bool lightOn = false;
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Switch(
+        value: lightOn,
+        onChanged: (bool value) {
+          setState(() {
+            lightOn = value;
+          });
+ 
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(lightOn ? 'Light On' : 'Light Off'),
+              duration: Duration(seconds: 1),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+Switch pada umumnya digunakan pada konfigurasi on/off pada halaman setting.
