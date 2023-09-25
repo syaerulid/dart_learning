@@ -1,0 +1,145 @@
+ListView digunakan untuk menampilkan beberapa item dalam bentuk baris atau kolom dan bisa di-scroll
+
+Cara penggunaan Listview dengan memasukan widget yang ingin disusun sebagai children dari ListView
+
+// Implementasi
+class ScrollingScreen extends StatelessWidget {
+  const ScrollingScreen({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              border: Border.all(color: Colors.black),
+            ),
+            child: const Center(
+              child: Text(
+                '1',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              border: Border.all(color: Colors.black),
+            ),
+            child: const Center(
+              child: Text(
+                '2',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              border: Border.all(color: Colors.black),
+            ),
+            child: const Center(
+              child: Text(
+                '3',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              border: Border.all(color: Colors.black),
+            ),
+            child: const Center(
+              child: Text(
+                '4',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// Menampilkan item secara dinamis dengan ListView
+class ScrollingScreen extends StatelessWidget {
+  const ScrollingScreen({Key? key}) : super(key: key);
+ 
+  final List<int> numberList = const <int>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: numberList.map((number) {}),
+      ),
+    );
+  }
+}
+
+// Menggunakan Lambda
+class ScrollingScreen extends StatelessWidget {
+  final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: numberList.map((number) {
+          return Container(
+            height: 250,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              border: Border.all(color: Colors.black),
+            ),
+            child: Center(
+              child: Text(
+                '$number', // Ditampilkan sesuai item
+                style: const TextStyle(fontSize: 50),
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
+
+// ListView.builder (digunakan ketika jumlah item cukup besar)
+Params = itemBuilder, itemCount
+itemBuilder = fungsi untuk mengembalikan widget untuk ditampilkan
+itemCount = jumlah seluruh item yang ingin ditampilkan
+
+// ListView.separated (menampilkan daftar item yang dipisah dengan separator)
+Params = itemBuilder, itemCount, separtorBuilder
+
+Implementasi
+ListView.separated(
+  itemCount: numberList.length,
+  itemBuilder: (BuildContext context, int index) {
+    return Container(
+      height: 250,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        border: Border.all(color: Colors.black),
+      ),
+      child: Center(
+        child: Text(
+          '${numberList[index]}',
+          style: const TextStyle(fontSize: 50),
+        ),
+      ),
+    );
+  },
+  separatorBuilder: (BuildContext context, int index) {
+    return const Divider();
+  },
+),
