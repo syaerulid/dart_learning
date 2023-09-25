@@ -1,0 +1,158 @@
+// Navigator adalah class yang memungkinkan kita untuk berpindah dari satu screen ke screen lainnnya
+
+// Konsep Navigator
+Menggunakan konsep LIFO (Last-In-First-Out) 
+
+// Implementasi
+// membuat halaman kedua
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Screen'),
+      ),
+      body: Center(
+        child: OutlinedButton(
+          child: const Text('Kembali'),
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+}
+
+// Membuat halaman pertama
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Pindah Screen'),
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+}
+
+// Navigator Push (pindah screen dari screen 1 ke screen 2)
+Navigator.push(context, MaterialPageRoute(builder: (context) {
+   return WidgetScreen();
+}));
+Params = context, route
+route = untuk menentukan tujuan pindah screen
+
+// lanjut Implementasi menggunakan onPressed
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Pindah Screen'),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const SecondScreen();
+            }));
+          },
+        ),
+      ),
+    );
+  }
+}
+
+// Navigator.pop untuk kembali ke screen sebelumnya
+// Implementasi
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Screen'),
+      ),
+      body: Center(
+        child: OutlinedButton(
+          child: const Text('Kembali'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+// Mengirim data antar halaman
+class FirstScreen extends StatelessWidget {
+  final String message = 'Hello from First Screen!';
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Pindah Screen'),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SecondScreen(message)));
+          },
+        ),
+      ),
+    );
+  }
+
+// Ubah default constructor second screen untuk menerima datanya
+class SecondScreen extends StatelessWidget {
+  final String message;
+ 
+  const SecondScreen(this.message, {Key? key}) : super(key: key);
+}
+
+// Implementasi Final
+class SecondScreen extends StatelessWidget {
+  final String message;
+ 
+  const SecondScreen(this.message, {Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Screen'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(message),
+            OutlinedButton(
+              child: const Text('Kembali'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
